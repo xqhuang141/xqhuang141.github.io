@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="公务员," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="快速解题方法先看元素： 相同-&gt;考虑位置规律（平移、反转、旋转） 相似-&gt;考虑样式规律（加减同异、黑白运算、遍历） 不相似-&gt;先考虑属性规律（对称性、开闭性、曲直性）；后考虑数量规律（点、线、面、素） 一些快速判断特征： 位置规律：元素组成相同 加减同异：分块组成相似 黑白运算：分块相同，有黑有白 对称性：图形全部轴对称或中心对称 开闭性：全封闭、全开口、有小口 曲直性：全曲图形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图形推理">
+<meta property="og:url" content="http://example.com/2021/04/19/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86-%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/index.html">
+<meta property="og:site_name" content="xqhuang&#39;s Notes">
+<meta property="og:description" content="快速解题方法先看元素： 相同-&gt;考虑位置规律（平移、反转、旋转） 相似-&gt;考虑样式规律（加减同异、黑白运算、遍历） 不相似-&gt;先考虑属性规律（对称性、开闭性、曲直性）；后考虑数量规律（点、线、面、素） 一些快速判断特征： 位置规律：元素组成相同 加减同异：分块组成相似 黑白运算：分块相同，有黑有白 对称性：图形全部轴对称或中心对称 开闭性：全封闭、全开口、有小口 曲直性：全曲图形">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-04-19T05:26:50.594Z">
+<meta property="article:modified_time" content="2021-04-19T08:16:00.020Z">
+<meta property="article:author" content="xqhuang">
+<meta property="article:tag" content="公务员">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '黄小青'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/04/19/判断推理-图形推理/"/>
+
+
+
+
+
+  <title>图形推理 | xqhuang's Notes</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3c4c23f099a129ec729c78e31208f5f0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xqhuang's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/19/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86-%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xqhuang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xqhuang's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">图形推理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-19T13:26:50+08:00">
+                2021-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A1%8C%E6%B5%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">行测</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A1%8C%E6%B5%8B/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">判断推理</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A1%8C%E6%B5%8B/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">图形推理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/04/19/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86-%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/04/19/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86-%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="快速解题方法"><a href="#快速解题方法" class="headerlink" title="快速解题方法"></a>快速解题方法</h2><p><strong>先看元素</strong>：</p>
+<p>相同-&gt;考虑位置规律（平移、反转、旋转）</p>
+<p>相似-&gt;考虑样式规律（加减同异、黑白运算、遍历）</p>
+<p>不相似-&gt;先考虑属性规律（对称性、开闭性、曲直性）；<br>后考虑数量规律（点、线、面、素）</p>
+<p><strong>一些快速判断特征</strong>：</p>
+<p>位置规律：元素组成相同</p>
+<p>加减同异：分块组成相似</p>
+<p>黑白运算：分块相同，有黑有白</p>
+<p>对称性：图形全部轴对称或中心对称</p>
+<p>开闭性：全封闭、全开口、有小口</p>
+<p>曲直性：全曲图形、全直图形</p>
+<p>点数量：线条和线条交叉明显</p>
+<p>线数量：单一直线、多边形、圆、单一曲线</p>
+<p>面数量：白色窟窿明显</p>
+<p>素数量：多个独立小图形</p>
+<h3 id="图推题的命题方式"><a href="#图推题的命题方式" class="headerlink" title="图推题的命题方式"></a>图推题的命题方式</h3><p><strong>一组图</strong>：一般为从左至右找整体规律解题；还可以“跳着看”（1、3、5；<br>2、4、6）或相邻两幅图形作比较。</p>
+<p><strong>两组图</strong>：题目中的图被分为两组，需要对比观察。首先找到第一组图的规<br>律，然后运用到第二组图形中。</p>
+<p><strong>九宫格</strong>：（1）首先考虑横着看（第一行找规律，第二行验证规律，第三行应用规律）。<br>（2）其次考虑竖着看（第一列找规律，第二列验证规律，第三列应用规律）。<br>（3）最后考虑“米”字型观察，考查较少。</p>
+<p><strong>分组分类</strong>：题干给出 6 幅图形，要求按照内部规律分成两组。</p>
+<p><strong>空间类</strong>：转换为平面思维</p>
+<p><strong>注意</strong>：图形推理中，一定要忽略题目的实际意义，观察图形的共同<br>特征找规律即可。</p>
+<h3 id="图形推理的考点"><a href="#图形推理的考点" class="headerlink" title="图形推理的考点"></a>图形推理的考点</h3><p>1.位置规律</p>
+<p>2.样式规律</p>
+<p>3.属性规律</p>
+<p>4.数量规律</p>
+<p>5.特殊规律</p>
+<p>6.空间重构</p>
+<h3 id="如何快速定位到某一图形的考点"><a href="#如何快速定位到某一图形的考点" class="headerlink" title="如何快速定位到某一图形的考点"></a>如何快速定位到某一图形的考点</h3><p>根据图形特征分为三类</p>
+<p>1.元素组成相同：看位置</p>
+<p>2.元素组成相似：看样式</p>
+<p>3.元素组成不同：先看属性，后看数量</p>
+<h3 id="规律学习"><a href="#规律学习" class="headerlink" title="规律学习"></a>规律学习</h3><h4 id="一-位置规律"><a href="#一-位置规律" class="headerlink" title="一.位置规律"></a>一.位置规律</h4><p>题目特征：元素组成相同</p>
+<p><strong>平移：</strong></p>
+<p>方向：上下、左右、顺逆时针</p>
+<p>步数：恒定、递增、递减</p>
+<p><strong>旋转：</strong></p>
+<p>1.方向：顺逆时针</p>
+<p>2.角度：45°、90°、180°</p>
+<p><strong>翻转：</strong></p>
+<p>1.左右翻转：图形沿竖轴对称</p>
+<p>2.上下翻转：图形沿横轴对称</p>
+<p>最好画出对称轴，方便看。</p>
+<h4 id="二-样式规律"><a href="#二-样式规律" class="headerlink" title="二.样式规律"></a>二.样式规律</h4><p>题目特征：元素组成相似</p>
+<h5 id="一、加减同异"><a href="#一、加减同异" class="headerlink" title="一、加减同异"></a>一、加减同异</h5><p>1.相加、相减：图一+图二=图三，图三-图二=图一</p>
+<p>2.求同：去掉不同，保留相同</p>
+<p>3.求异：相同的去掉，不同的保留</p>
+<p><strong>注意</strong>：外框有时不参与变化</p>
+<h5 id="二、黑白运算"><a href="#二、黑白运算" class="headerlink" title="二、黑白运算"></a>二、黑白运算</h5><p>特征：图形轮廓和分割区域相同，内部的颜色不同</p>
+<p>方法：对应位置运算</p>
+<p><strong>黑白运算与位置类平移最大的区别</strong>：当组成元素相同且数量相同，考虑位置；当数量不同时，考虑黑白运算。数黑块数量是否一致，一致看位置，不一致看黑白运算。</p>
+<p><strong>复合考点</strong>：运算+位置</p>
+<h4 id="三-属性规律"><a href="#三-属性规律" class="headerlink" title="三.属性规律"></a>三.属性规律</h4><p>属性类别识别特征：元素组成不相同、不相似</p>
+<p><strong>1.对称性:</strong> 轴对称、中心对称</p>
+<p>轴对称图形：考虑对称轴的方向和数量。</p>
+<p><strong>2.开闭性：</strong></p>
+<p>出现全封闭图（外围全部被包裹，没有窟窿）或全开放图优先考虑开闭性，遇到“又”等半开放半封闭图时不优先考虑开闭性。</p>
+<p>完整的图形留了小开口，可以考虑开闭性</p>
+<p><strong>3.曲直性：</strong></p>
+<p>全曲线或全直线图形优先考虑曲直性，但若有曲线有直<br>线的图形，如扇形，不优先考虑曲直性。</p>
+<p>曲直性要观察图形由曲线或直线构成。</p>
+<p>曲直性在省考中考查多，国考中考查少</p>
+<h4 id="四-数量规律"><a href="#四-数量规律" class="headerlink" title="四.数量规律"></a>四.数量规律</h4><p>1.元素组成不同，先属性后数量。</p>
+<p>2.特征：<br>（1）元素组成不相同、不相似。<br>（2）数量规律明显，如图形中点数量明显。</p>
+<p>3.考点：点、线、面、素（即小元素、小图形）。</p>
+<p><strong>一、点数量</strong>：线条和线条交叉明显</p>
+<p>整体数交点无规律，将点进行分类，单独数曲直交点</p>
+<p><strong>二、线数量</strong>：数直线和曲线。数点时优先整体数交点，数线时优先分开数。</p>
+<p>（1）遇到单一直线和多边形（五边形、六边形），优先考虑单独数直线。</p>
+<p>（2）遇到圆、单一曲线，优先单独数曲线。</p>
+<p><strong>三、笔画图形特征</strong>：</p>
+<p>$\color{red}{一笔画：}$</p>
+<p>1.线条之间全部连通</p>
+<p>2.奇点数为0或2个</p>
+<p>奇点：从一个点发射出奇数条线</p>
+<p>$\color{red}{多笔画：}$</p>
+<p>图形笔画数=奇点数/2（任何图形的奇点数一定为偶数）</p>
+<p><strong>四、面数量</strong>：</p>
+<p>注意：面是白的，黑的不是面。</p>
+<p>特征图：</p>
+<p>1.白色窟窿明显，图形被分割。比如上图类似“小隔间”，可以优先数面。</p>
+<p>2.生活化图形、粗线条图形中留白。</p>
+<p><strong>五、素数量</strong>：</p>
+<p>1.素的概念：独立的小图形。</p>
+<p>2.数素特征图：出现多个独立小图形，比如小三角形等。</p>
+<p>3.考查方式：</p>
+<p>（1）元素种类，即长得一样算一种元素，比如图一有1种元素，图二有2<br>种元素，图三有3种元素。</p>
+<p>（2）元素个数，比如图一有4个元素，图二有3个元素，图三有5个元素。</p>
+<p>（3）一般考查两者结合的方式。</p>
+<p>（4）部分数：(线条与线条连在一起叫做一部分)</p>
+<h4 id="五-特殊规律"><a href="#五-特殊规律" class="headerlink" title="五.特殊规律"></a>五.特殊规律</h4><p>一、功能元素</p>
+<p>1.点</p>
+<p>（1）观察点的位置</p>
+<p>（2）单独观察点位置没有规律，且只有两个点，考虑两点连线与其他图<br>形的位置关系</p>
+<p>2.箭头</p>
+<p>（1）观察箭头的指向</p>
+<p>（2）观察箭头与箭头之间的关系（如箭头之间垂直/平行）</p>
+<p>功能元素中，标记位置关系考查最多。</p>
+<p>二、图形间关系</p>
+<p>1.相离：完全不相交</p>
+<p>2.相压：上下覆盖</p>
+<p>3.相交</p>
+<p>（1）交于公共点：观察交点的位置</p>
+<p>（2）交于公共面：观察相交面的形状</p>
+<p>（3）交于公共边：①看数量；②看样式：长/短，整体/部分</p>
+<h4 id="六-空间重构"><a href="#六-空间重构" class="headerlink" title="六.空间重构"></a>六.空间重构</h4><p>解题思维：顺时针画边法</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%85%AC%E5%8A%A1%E5%91%98/" rel="tag"># 公务员</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/14/%E4%BA%BA%E7%94%9F%E7%9A%84%E8%8B%A6%E8%B0%9B/" rel="next" title="最苦的美丽">
+                <i class="fa fa-chevron-left"></i> 最苦的美丽
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/20/%E4%B8%AD%E5%9B%BD%E9%80%9A%E5%8F%B2%E4%B8%80--%E4%B8%89%E7%9A%87%E4%BA%94%E5%B8%9D/" rel="prev" title="中国历史（一）三皇五帝">
+                中国历史（一）三皇五帝 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/user.jpg"
+                alt="xqhuang" />
+            
+              <p class="site-author-name" itemprop="name">xqhuang</p>
+              <p class="site-description motion-element" itemprop="description">爱生活，爱慧慧~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+		  
+			<div>
+			
+			
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=200 height=70 src="//music.163.com/outchain/player?type=2&id=479422062&auto=1&height=66"></iframe>
+			
+			
+			</div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E8%A7%A3%E9%A2%98%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">快速解题方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E6%8E%A8%E9%A2%98%E7%9A%84%E5%91%BD%E9%A2%98%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">图推题的命题方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86%E7%9A%84%E8%80%83%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">图形推理的考点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%AE%9A%E4%BD%8D%E5%88%B0%E6%9F%90%E4%B8%80%E5%9B%BE%E5%BD%A2%E7%9A%84%E8%80%83%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">如何快速定位到某一图形的考点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%BE%8B%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.4.</span> <span class="nav-text">规律学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80-%E4%BD%8D%E7%BD%AE%E8%A7%84%E5%BE%8B"><span class="nav-number">1.4.1.</span> <span class="nav-text">一.位置规律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C-%E6%A0%B7%E5%BC%8F%E8%A7%84%E5%BE%8B"><span class="nav-number">1.4.2.</span> <span class="nav-text">二.样式规律</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8A%A0%E5%87%8F%E5%90%8C%E5%BC%82"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">一、加减同异</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%BB%91%E7%99%BD%E8%BF%90%E7%AE%97"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">二、黑白运算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89-%E5%B1%9E%E6%80%A7%E8%A7%84%E5%BE%8B"><span class="nav-number">1.4.3.</span> <span class="nav-text">三.属性规律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B-%E6%95%B0%E9%87%8F%E8%A7%84%E5%BE%8B"><span class="nav-number">1.4.4.</span> <span class="nav-text">四.数量规律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94-%E7%89%B9%E6%AE%8A%E8%A7%84%E5%BE%8B"><span class="nav-number">1.4.5.</span> <span class="nav-text">五.特殊规律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AD-%E7%A9%BA%E9%97%B4%E9%87%8D%E6%9E%84"><span class="nav-number">1.4.6.</span> <span class="nav-text">六.空间重构</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xqhuang</span>
+
+  
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 总访客
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zqOcBtOc58fMwlXybTPBOwOk-gzGzoHsz',
+        appKey: '4lFBV9B8fkGowg3yYwDHmYYB',
+        placeholder: '请在此输入你的留言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
