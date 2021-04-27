@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="公务员," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="上一篇文章中讲解了解决空间六面体的几种方法，不知道大家有没有熟练运用。这篇文章中我带大家继续加强对空间六面体的理解。讲解一下空间六面体的展开图类型以及展开图的旋转平移性质。​ 空间六面体展开图的性质目录： 一、六面体展开图的种类 二、六面体展开图的旋转平移性质 三、如何利用旋转平移性质 一、六面体展开图的种类六面体展开图 一共有11种 四类 第一类 ①②③④⑤⑥：141 规律简单，俩个1相对，4的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="空间六面体展开图的性质">
+<meta property="og:url" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/index.html">
+<meta property="og:site_name" content="xqhuang&#39;s Notes">
+<meta property="og:description" content="上一篇文章中讲解了解决空间六面体的几种方法，不知道大家有没有熟练运用。这篇文章中我带大家继续加强对空间六面体的理解。讲解一下空间六面体的展开图类型以及展开图的旋转平移性质。​ 空间六面体展开图的性质目录： 一、六面体展开图的种类 二、六面体展开图的旋转平移性质 三、如何利用旋转平移性质 一、六面体展开图的种类六面体展开图 一共有11种 四类 第一类 ①②③④⑤⑥：141 规律简单，俩个1相对，4的">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/1.jpg">
+<meta property="og:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/2.jpg">
+<meta property="og:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/3.jpg">
+<meta property="og:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/4.jpg">
+<meta property="og:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/5.jpg">
+<meta property="og:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/6.jpg">
+<meta property="og:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/7.jpg">
+<meta property="article:published_time" content="2021-04-27T04:16:23.000Z">
+<meta property="article:modified_time" content="2021-04-27T04:22:24.962Z">
+<meta property="article:author" content="xqhuang">
+<meta property="article:tag" content="公务员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '黄小青'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/04/27/空间六面体展开图的性质/"/>
+
+
+
+
+
+  <title>空间六面体展开图的性质 | xqhuang's Notes</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3c4c23f099a129ec729c78e31208f5f0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xqhuang's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xqhuang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xqhuang's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">空间六面体展开图的性质</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-27T12:16:23+08:00">
+                2021-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A1%8C%E6%B5%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">行测</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A1%8C%E6%B5%8B/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">判断推理</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A1%8C%E6%B5%8B/%E5%88%A4%E6%96%AD%E6%8E%A8%E7%90%86/%E5%9B%BE%E5%BD%A2%E6%8E%A8%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">图形推理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一篇文章中讲解了解决空间六面体的几种方法，不知道大家有没有熟练运用。这篇文章中我带大家继续加强对空间六面体的理解。讲解一下空间六面体的展开图类型以及展开图的旋转平移性质。<br>​</p>
+<h2 id="空间六面体展开图的性质"><a href="#空间六面体展开图的性质" class="headerlink" title="空间六面体展开图的性质"></a>空间六面体展开图的性质</h2><p>目录：</p>
+<p>一、六面体展开图的种类</p>
+<p>二、六面体展开图的旋转平移性质</p>
+<p>三、如何利用旋转平移性质</p>
+<h2 id="一、六面体展开图的种类"><a href="#一、六面体展开图的种类" class="headerlink" title="一、六面体展开图的种类"></a>一、六面体展开图的种类</h2><p>六面体展开图 一共有11种 四类</p>
+<p>第一类 ①②③④⑤⑥：141 规律简单，俩个1相对，4的部分间隔为对面；</p>
+<p>第二类：⑦⑧⑨：132 遵循z字形的俩端为对面 包括大z、小z，小L的三面为邻面；</p>
+<p>第三类: ⑩ 33 此时大z字形的俩端为对面不再适用，小z俩端为对面还适用，此时每行俩端为对面！小L的三面为邻面适用；</p>
+<p>第四类：最后一个，222，小z俩端为对面，小L的三面为邻面。</p>
+<p><img src="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/1.jpg" alt="图片"></p>
+<h2 id="二、六面体展开图的旋转平移性质"><a href="#二、六面体展开图的旋转平移性质" class="headerlink" title="二、六面体展开图的旋转平移性质"></a>二、六面体展开图的旋转平移性质</h2><p>1.旋转：只要是三面共点，选择一个面围绕该点就可以旋转，是等价的。</p>
+<p>如下图所示，最下面的面沿着三面共点旋转，这四个展开图都是等价的。</p>
+<p><img src="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/2.jpg" alt="图片"></p>
+<p>2.平移：对于四个正方形面形成一条直线的情况下，可以把两端的面互换（可以带着其他面一起，或者不带）。</p>
+<p>如下图所示，最右边的面可以平移到最左边，最左边的也可以带着上下两个面平移到右边，这三个展开图都是等价的。</p>
+<p><img src="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/3.jpg" alt="图片"></p>
+<h2 id="三、如何利用旋转平移性质"><a href="#三、如何利用旋转平移性质" class="headerlink" title="三、如何利用旋转平移性质"></a>三、如何利用旋转平移性质</h2><p>掌握了旋转和平移的技巧，我们该如何使用这种方法来方便的解题呢？还记得上一篇文章中提到的画边法吗。画边法中需要找到一个顶点开始，顺时针画边。而这个顶点的确定很是关键，决定了答题的速度。</p>
+<p>由于六面体立体图形都只给出三个不共面的点，我们可以找到这三个面的共点，带入展开图中。</p>
+<p>选项A直接在展开图中找到三面共点，进行顺时针画线，发现与原图不符，排除。</p>
+<p><img src="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/4.jpg" alt="图片"></p>
+<p>选项B，利用上一篇中提到的对立面排除法，发现面B和E是对面，B中B和W是邻面，与原图不符，排除。</p>
+<p><img src="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/5.jpg" alt="图片"></p>
+<p>选项C不能从展开图中找到三面共点，利用上面刚学会的旋转平移，如下图所示，图1中，A面和F面旋转得到图2；F面平移得到图3；B面旋转得到图4，对比选项C，找到三面共点。</p>
+<p><img src="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/6.jpg" alt="图片"></p>
+<p>从三面共点出发，进行顺时针画线，发现与原图不符，排除。</p>
+<p><img src="/2021/04/27/%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8/7.jpg" alt="图片"></p>
+<p>因此答案选D。</p>
+<p>好了，通过上文的讲解，小伙伴们一定对六面体空间重构题有了更深刻的认识。熟练掌握旋转平移性质和画边法，就可以轻松破题。</p>
+<p>觉得不错的话，请关注我吧，每天都有新的公考知识推送哦(⊙o⊙)~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%85%AC%E5%8A%A1%E5%91%98/" rel="tag"># 公务员</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/27/%E4%B8%80%E6%96%87%E8%A7%A3%E5%86%B3%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E9%87%8D%E6%9E%84/" rel="next" title="一文解决空间六面体重构">
+                <i class="fa fa-chevron-left"></i> 一文解决空间六面体重构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/user.jpg"
+                alt="xqhuang" />
+            
+              <p class="site-author-name" itemprop="name">xqhuang</p>
+              <p class="site-description motion-element" itemprop="description">爱生活，爱慧慧~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+		  
+			<div>
+			
+			
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=200 height=70 src="//music.163.com/outchain/player?type=2&id=479422062&auto=1&height=66"></iframe>
+			
+			
+			</div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">1.</span> <span class="nav-text">空间六面体展开图的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">一、六面体展开图的种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%AD%E9%9D%A2%E4%BD%93%E5%B1%95%E5%BC%80%E5%9B%BE%E7%9A%84%E6%97%8B%E8%BD%AC%E5%B9%B3%E7%A7%BB%E6%80%A7%E8%B4%A8"><span class="nav-number">3.</span> <span class="nav-text">二、六面体展开图的旋转平移性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%97%8B%E8%BD%AC%E5%B9%B3%E7%A7%BB%E6%80%A7%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">三、如何利用旋转平移性质</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xqhuang</span>
+
+  
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 总访客
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zqOcBtOc58fMwlXybTPBOwOk-gzGzoHsz',
+        appKey: '4lFBV9B8fkGowg3yYwDHmYYB',
+        placeholder: '请在此输入你的留言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
